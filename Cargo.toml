@@ -5,7 +5,7 @@ edition = "2024"
 resolver = "3"
 
 [dependencies]
-axum                = { version = "0.8.3", features = ["tokio", "http2", "macros", "multipart", "ws"], optional = true }
+axum                = { version = "0.8.3", features = ["http2", "macros", "multipart", "ws"], optional = true }
 bytes               = { version = "1.10.1", optional = true }
 hyper               = { version = "1.6.0", default-features = false, optional = true}
 io-uring            = { version = "0.7.4", optional = true}
@@ -18,6 +18,7 @@ tokio-io            = { version = "0.1.13", optional = true }
 tokio-postgres      = { version = "0.7.13", features = ["with-chrono-0_4"], optional = true }
 tokio-util          = { version = "0.7.14", features = ["full"], optional = true }
 tokio-stream        = { version= "0.1.17", features = ["full"], optional = true }
+tokio-rustls        = { version = "0.26.2", optional = true }
 tracing             = { version = "0.1.41", optional = true }
 tracing-subscriber  = { version = "0.3.19", optional = true }
 tracing-indicatif   = { version = "0.3.9", optional = true }
@@ -42,30 +43,33 @@ full		        = [
     "rdbc",
     "rt",
     "rt-multi-thread",
+    "rustls",
     "signal",
     "stream",
     "sync",
     "time",
     "tracing",
 ]
-axum              = ["dep:axum"]
-fs                = ["toki0/fs"]
-hyper             = ["dep:hyper"]
-util              = ["tokio-util"]
-io-util           = ["toki0/io-util"]
-io-uring          = ["dep:io-uring"]
-io-std            = ["toki0/io-std"]
-macros            = ["toki0/macros"]
-net               = ["toki0/net"]
-parking_lot       = ["toki0/parking_lot"]
-postgres          = ["tokio-postgres/with-chrono-0_4", "postgres-types/derive", "postgres-types/chrono-04"]
-process           = ["toki0/process"]
-prost             = ["dep:prost"]
-rdbc              = ["dep:rdbc"]
-rt                = ["toki0/rt"]
-rt-multi-thread   = ["toki0/rt-multi-thread"]
-signal            = ["toki0/signal"]
-stream            = ["tokio-stream/full", "pin-project"]
-sync              = ["toki0/sync"]
-time              = ["toki0/time"]
-tracing           = ["dep:tracing", "tracing-indicatif", "tracing-subscriber"]
+axum                = ["dep:axum"]
+fs		            = ["toki0/fs"]
+hyper               = ["dep:hyper"]
+util		        = ["tokio-util"]
+io-util		        = ["toki0/io-util"]
+io-uring            = ["dep:io-uring"]
+io-std		        = ["toki0/io-std"]
+macros		        = ["toki0/macros"]
+net		            = ["toki0/net"]
+parking_lot         = ["toki0/parking_lot"]
+postgres	        = ["tokio-postgres/with-chrono-0_4", "postgres-types/derive", "postgres-types/chrono-04"]
+process		        = ["toki0/process"]
+prost               = ["dep:prost"]
+rdbc                = ["dep:rdbc"]
+rt		            = ["toki0/rt"]
+rt-multi-thread     = ["toki0/rt-multi-thread"]
+rustls              = ["tokio-rustls"]
+signal		        = ["toki0/signal"]
+stream              = ["tokio-stream/full", "pin-project"]
+sync		        = ["toki0/sync"]
+time		        = ["toki0/time"]
+tracing             = ["dep:tracing", "tracing-indicatif", "tracing-subscriber"]
+
