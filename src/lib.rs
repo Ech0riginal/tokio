@@ -22,7 +22,10 @@ pub mod postgres {
 pub use prost;
 
 #[cfg(feature = "rustls")]
-pub use tokio_rustls as rustls;
+pub mod rustls {
+    pub use rustls::*;
+    pub use tokio_rustls::*;
+}
 
 #[cfg(feature = "util")]
 pub use tokio_util as util;
