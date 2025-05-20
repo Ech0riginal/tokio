@@ -27,8 +27,8 @@ tracing-subscriber  = { version = "0.3.19", optional = true }
 tracing-indicatif   = { version = "0.3.9", optional = true }
 
 [features]
-default		        = []
-full		        = [
+default                = []
+full                = [
     "axum",
     "bytes",
     "console",
@@ -59,23 +59,23 @@ axum            = ["dep:axum"]
 console         = ["console-subscriber"]
 fs              = ["_tokio/fs"]
 hyper           = ["dep:hyper"]
-util	        = ["tokio-util"]
-io-util	        = ["_tokio/io-util"]
+util            = ["tokio-util"]
+io-util         = ["_tokio/io-util"]
 io-uring        = ["dep:io-uring"]
 io-std          = ["_tokio/io-std"]
-macros		    = ["_tokio/macros"]
-net		        = ["_tokio/net"]
+macros          = ["_tokio/macros"]
+net             = ["_tokio/net"]
 parking_lot     = ["_tokio/parking_lot"]
-postgres	    = ["tokio-postgres/with-chrono-0_4", "postgres-types/derive", "postgres-types/chrono-04"]
-process		    = ["_tokio/process"]
+postgres        = ["tokio-postgres/with-chrono-0_4", "postgres-types/derive", "postgres-types/chrono-04"]
+process         = ["_tokio/process"]
 prost           = ["dep:prost"]
 rdbc            = ["dep:rdbc"]
-rt		        = ["_tokio/rt"]
+rt              = ["_tokio/rt"]
 rt-multi-thread = ["_tokio/rt-multi-thread"]
 rustls          = ["tokio-rustls", "dep:rustls"]
 signal          = ["_tokio/signal"]
 stream          = ["tokio-stream/full", "pin-project"]
-sync		    = ["_tokio/sync"]
-time		    = ["_tokio/time"]
+sync            = ["_tokio/sync"]
+time            = ["_tokio/time"]
 tracing         = ["dep:tracing", "tracing-appender", "tracing-flame", "tracing-indicatif", "tracing-subscriber"]
 
