@@ -1,4 +1,4 @@
-pub use toki0::*;
+pub use _tokio::*;
 
 #[cfg(feature = "axum")]
 pub use axum;
@@ -29,7 +29,10 @@ pub mod postgres {
 pub use prost;
 
 #[cfg(feature = "rustls")]
-pub use tokio_rustls as rustls;
+pub mod rustls {
+    pub use ::rustls::Error;
+    pub use tokio_rustls::*;
+}
 
 #[cfg(feature = "util")]
 pub use tokio_util as util;
@@ -39,8 +42,8 @@ pub use tokio_stream as stream;
 
 #[cfg(feature = "stream")]
 pub mod pin {
+    pub use _tokio::pin;
     pub use pin_project as project;
-    pub use toki0::pin;
 }
 
 #[cfg(feature = "tracing")]

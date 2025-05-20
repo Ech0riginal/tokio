@@ -14,9 +14,10 @@ pin-project         = { version = "1.1.10", optional = true }
 postgres-types      = { version = "0.2.9", features = ["derive", "chrono-04"], optional = true }
 prost               = { version = "0.13.5", optional = true }
 rdbc                = { version = "0.1.6", optional = true }
-toki0               = { version = "1.45.0", package = "tokio", features = ["full"] }
+rustls              = { version = "0.23.27", optional = true }
+_tokio              = { version = "1.45.0", package = "tokio", features = ["full"] }
 tokio-postgres      = { version = "0.7.13", features = ["with-chrono-0_4"], optional = true }
-tokio-util          = { version = "0.7.14", features = ["full"], optional = true }
+tokio-util          = { version = "0.7.15", features = ["full"], optional = true }
 tokio-stream        = { version= "0.1.17", features = ["full"], optional = true }
 tokio-rustls        = { version = "0.26.2", optional = true }
 tracing             = { version = "0.1.41", optional = true }
@@ -30,6 +31,7 @@ default		        = []
 full		        = [
     "axum",
     "bytes",
+    "console",
     "fs",
     "hyper",
     "util",
@@ -52,27 +54,28 @@ full		        = [
     "time",
     "tracing",
 ]
+
 axum            = ["dep:axum"]
 console         = ["console-subscriber"]
-fs	            = ["toki0/fs"]
+fs	            = ["_tokio/fs"]
 hyper           = ["dep:hyper"]
 util	        = ["tokio-util"]
-io-util	        = ["toki0/io-util"]
+io-util	        = ["_tokio/io-util"]
 io-uring        = ["dep:io-uring"]
-io-std          = ["toki0/io-std"]
-macros		    = ["toki0/macros"]
-net		        = ["toki0/net"]
-parking_lot     = ["toki0/parking_lot"]
+io-std          = ["_tokio/io-std"]
+macros		    = ["_tokio/macros"]
+net		        = ["_tokio/net"]
+parking_lot     = ["_tokio/parking_lot"]
 postgres	    = ["tokio-postgres/with-chrono-0_4", "postgres-types/derive", "postgres-types/chrono-04"]
-process		    = ["toki0/process"]
+process		    = ["_tokio/process"]
 prost           = ["dep:prost"]
 rdbc            = ["dep:rdbc"]
-rt		        = ["toki0/rt"]
-rt-multi-thread = ["toki0/rt-multi-thread"]
-rustls          = ["tokio-rustls"]
-signal          = ["toki0/signal"]
+rt		        = ["_tokio/rt"]
+rt-multi-thread = ["_tokio/rt-multi-thread"]
+rustls          = ["tokio-rustls", "dep:rustls"]
+signal          = ["_tokio/signal"]
 stream          = ["tokio-stream/full", "pin-project"]
-sync		    = ["toki0/sync"]
-time		    = ["toki0/time"]
+sync		    = ["_tokio/sync"]
+time		    = ["_tokio/time"]
 tracing         = ["dep:tracing", "tracing-appender", "tracing-flame", "tracing-indicatif", "tracing-subscriber"]
 
