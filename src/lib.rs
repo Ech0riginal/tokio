@@ -6,6 +6,13 @@ pub use axum;
 #[cfg(feature = "bytes")]
 pub use bytes;
 
+#[cfg(feature = "console")]
+pub mod console {
+    pub mod subscriber {
+        pub use console_subscriber::*;
+    }
+}
+
 #[cfg(feature = "hyper")]
 pub use hyper;
 
@@ -39,6 +46,8 @@ pub mod pin {
 #[cfg(feature = "tracing")]
 pub mod tracing {
     pub use tracing::*;
+    pub use tracing_appender as appender;
+    pub use tracing_flame as flame;
     pub use tracing_indicatif as indicatif;
     pub use tracing_subscriber as subscriber;
 }
