@@ -41,10 +41,7 @@ pub use tokio_util as util;
 pub use tokio_stream as stream;
 
 #[cfg(feature = "stream")]
-pub mod pin {
-    pub use _tokio::pin;
-    pub use pin_project as project;
-}
+pub use pin_project::*;
 
 #[cfg(feature = "tracing")]
 pub mod tracing {
