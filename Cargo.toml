@@ -57,7 +57,7 @@ full		        = [
 
 axum            = ["dep:axum"]
 console         = ["console-subscriber"]
-fs	            = ["_tokio/fs"]
+fs              = ["_tokio/fs"]
 hyper           = ["dep:hyper"]
 util	        = ["tokio-util"]
 io-util	        = ["_tokio/io-util"]
