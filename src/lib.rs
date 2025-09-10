@@ -48,6 +48,8 @@ pub mod tracing {
     pub use tracing::*;
     pub use tracing_appender as appender;
     pub use tracing_flame as flame;
+    pub use tracing_forest as forest;
     pub use tracing_indicatif as indicatif;
     pub use tracing_subscriber as subscriber;
+    pub use tracing_opentelemetry as opentelemetry;
 }
